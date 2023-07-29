@@ -1,15 +1,3 @@
-# if [ -d "/Volumes/Macintosh HD - Data" ]
-# then
-#     ls /Volumes/Macintosh\ HD\ -\ Data/
-#     echo "Directory /path/to/dir exists."
-# else
-#     echo "Error: Directory /path/to/dir does not exists."
-# fi
-
-# /Volumes/Macintosh HD/etc/hosts
-# /Volumes/Macintosh HD/var/db/ConfigurationProfiles/Settings
-# cd /Volumes/Macintosh\ HD/private/
-
 #!/bin/bash
 # Bash Menu Script Example
 RED='\033[0;31m'
