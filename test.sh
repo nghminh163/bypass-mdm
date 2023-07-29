@@ -32,18 +32,16 @@ select opt in "${options[@]}"; do
 			pathSys="/Volumes/Data"
 		fi
 		echo "Setup root account"
-  		echo '    ' | dscl -f ${pathSys}/private/var/db/dslocal/nodes/Default localhost -passwd /Local/Default/Users/root
-    		# dscl -f ${pathSys}/private/var/db/dslocal/nodes/Default localhost -passwd /Local/Default/Users/root '    '
-		#dscl -f ${pathSys}/private/var/db/dslocal/nodes/Default localhost -passwd /Local/Default/Users/root "    "
-		# echo "Block host"
-		# echo "0.0.0.0 deviceenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
-		# echo "0.0.0.0 mdmenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
-		# echo "0.0.0.0 iprofiles.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
-		# echo "Remove config profile"
-		# rm /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigHasActivationRecord
-		# rm /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordFound
-		# touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigProfileInstalled
-		# touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordNotFound
+  		dscl -f ${pathSys}/private/var/db/dslocal/nodes/Default localhost -passwd /Local/Default/Users/root '    '
+		echo "Block host"
+		echo "0.0.0.0 deviceenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
+		echo "0.0.0.0 mdmenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
+		echo "0.0.0.0 iprofiles.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
+		echo "Remove config profile"
+		rm -rf /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigHasActivationRecord
+		rm -rf /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordFound
+		touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigProfileInstalled
+		touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordNotFound
 		echo "----------------------"
 		break
 		;;
@@ -52,6 +50,8 @@ select opt in "${options[@]}"; do
 		su
 		echo -e "${RED}Please Insert Your Password To Proceed${NC}"
 		echo ""
+  		sudo touch /private/var/db/.AppleSetupDone
+    		sudo dsenableroot -d -u root
 		break
 		;;
 	"Check MDM Enrollment")
