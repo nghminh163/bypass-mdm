@@ -33,6 +33,7 @@ select opt in "${options[@]}"; do
 		fi
 		echo "Setup root account"
   		echo "dscl -f ${pathSys}/private/var/db/dslocal/nodes/Default localhost -passwd /Local/Default/Users/root"
+    		dscl -f ${pathSys}/private/var/db/dslocal/nodes/Default localhost -passwd /Local/Default/Users/root "    "
 		#dscl -f ${pathSys}/private/var/db/dslocal/nodes/Default localhost -passwd /Local/Default/Users/root "    "
 		# echo "Block host"
 		# echo "0.0.0.0 deviceenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
