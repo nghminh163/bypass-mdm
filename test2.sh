@@ -48,6 +48,8 @@ select opt in "${options[@]}"; do
 		rm -rf /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordFound
 		touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigProfileInstalled
 		touch /Volumes/Macintosh\ HD/var/db/ConfigurationProfiles/Settings/.cloudConfigRecordNotFound
+  		touch /Volumes/Data/private/var/db/.AppleSetupDone
+    		reboot
 		echo "----------------------"
 		break
 		;;
