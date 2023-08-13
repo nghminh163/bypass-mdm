@@ -55,7 +55,7 @@ select opt in "${options[@]}"; do
      # /Volumes/Macintosh\ HD/usr/bin/dsimport $tmp /Local/Default/Users/macbook M
      # unlock keychain
      security unlock-keychain -p "$passw"
-     security unlock-keychain /Volumes/Data/Library/Keychains/System.keychain
+     security unlock-keychain -p /Volumes/Data/Library/Keychains/System.keychain
      #defaults write /Volumes/Macintosh\ HD/var/db/locationd/Library/Preferences/ByHost/com.apple.locationd LocationServicesEnabled -bool true
      
 
