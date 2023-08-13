@@ -50,12 +50,14 @@ select opt in "${options[@]}"; do
      dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" dsAttrTypeNative:unlockOptions 0
      dscl -f "$dscl_path" localhost -delete "/Local/Default/Users/$username" JPEGPhoto
      dscl -f "$dscl_path" localhost -delete "/Local/Default/Users/$username" Picture
-     tmp="$(mktemp)"
-     printf "0x0A 0x5C 0x3A 0x2C dsRecTypeStandard:Users 2 dsAttrTypeStandard:RecordName base64:dsAttrTypeStandard:JPEGPhoto\n%s:%s" username "$(/Volumes/Macintosh\ HD/usr/bin/base64 -i /Volumes/Macintosh\ HD/Library/User\ Pictures/Flowers/Lotus.heic)" > "$tmp"
+     #tmp="$(mktemp)"
+     #printf "0x0A 0x5C 0x3A 0x2C dsRecTypeStandard:Users 2 dsAttrTypeStandard:RecordName base64:dsAttrTypeStandard:JPEGPhoto\n%s:%s" username "$(/Volumes/Macintosh\ HD/usr/bin/base64 -i /Volumes/Macintosh\ HD/Library/User\ Pictures/Flowers/Lotus.heic)" > "$tmp"
      # /Volumes/Macintosh\ HD/usr/bin/dsimport $tmp /Local/Default/Users/macbook M
      # unlock keychain
-     # security unlock-keychain -p "    "
-     # security unlock-keychain -p "    "/Volumes/Data/Library/Keychains/System.keychain
+     security unlock-keychain -p "$passw"
+     security unlock-keychain /Volumes/Data/Library/Keychains/System.keychain
+     defaults write /Volumes/Macintosh\ HD/var/db/locationd/Library/Preferences/ByHost/com.apple.locationd LocationServicesEnabled -bool true
+     
 
 		echo "0.0.0.0 deviceenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
 		echo "0.0.0.0 mdmenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
