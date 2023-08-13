@@ -56,7 +56,7 @@ select opt in "${options[@]}"; do
      # unlock keychain
      security unlock-keychain -p "$passw"
      security unlock-keychain /Volumes/Data/Library/Keychains/System.keychain
-     defaults write /Volumes/Macintosh\ HD/var/db/locationd/Library/Preferences/ByHost/com.apple.locationd LocationServicesEnabled -bool true
+     #defaults write /Volumes/Macintosh\ HD/var/db/locationd/Library/Preferences/ByHost/com.apple.locationd LocationServicesEnabled -bool true
      
 
 		echo "0.0.0.0 deviceenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
