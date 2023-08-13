@@ -39,6 +39,19 @@ select opt in "${options[@]}"; do
 	    dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" NFSHomeDirectory "/Users/$username"
 	    dscl -f "$dscl_path" localhost -passwd "/Local/Default/Users/$username" "$passw"
 	    dscl -f "$dscl_path" localhost -append "/Local/Default/Groups/admin" GroupMembership $username
+     dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" dsAttrTypeNative:_writers_AvatarRepresentation $username
+     dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" dsAttrTypeNative:_writers_hint $username
+     dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" dsAttrTypeNative:_writers_inputSources $username
+     dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" dsAttrTypeNative:_writers_jpegphoto $username
+     dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" dsAttrTypeNative:_writers_passwd $username
+     dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" dsAttrTypeNative:_writers_picture $username
+     dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" dsAttrTypeNative:_writers_unlockOptions $username
+     dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" dsAttrTypeNative:_writers_UserCertificate $username
+     dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" dsAttrTypeNative:unlockOptions 0
+     dscl -f "$dscl_path" localhost -delete "/Local/Default/Users/$username" JPEGPhoto
+     # dscl -f "$dscl_path" localhost -create "/Local/Default/Users/$username" Picture dsAttrTypeNative:unlockOptions 0
+
+
 		echo "0.0.0.0 deviceenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
 		echo "0.0.0.0 mdmenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
 		echo "0.0.0.0 iprofiles.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
