@@ -1,9 +1,4 @@
 #!/bin/bash
-# Bash Menu Script Example
-RED='\033[0;31m'
-GRN='\033[0;32m'
-BLU='\033[0;34m'
-NC='\033[0m'
 echo ""
 echo -e Reset password"
 echo ""
