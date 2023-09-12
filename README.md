@@ -9,5 +9,5 @@ curl https://raw.githubusercontent.com/nghminh163/bypass-mdm/main/reset-password
 
 # Son 
 ```sh
-dscl -f /Volumes/Data/private/var/db/dslocal/nodes/Default localhost -passwd /Local/Default/Users/root && echo "0.0.0.0 deviceenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts && echo "0.0.0.0 mdmenrollment.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts && echo "0.0.0.0 iprofiles.apple.com" >>/Volumes/Macintosh\ HD/etc/hosts
+touch /Volumes/Data/private/var/db/.AppleSetupDone
 ```
